@@ -1,0 +1,30 @@
+
+<center><h1> Fibonacci 2048 - <%= $game.user.name %> </h1> <p><%= link_to "Save & Back", user_path($game.user.id) %></p></center>
+
+<table align="center" width=<%= $game.grid*50 %> height=<%= $game.grid * 50 %> border=<%= $game.grid %> style="table-layout:fixed">
+	<% for row in 0...$game.grid do %>
+		<tr>
+			<% for column in 0...$game.grid do %>
+				<td align="center"> <%= $array[row][column] if $array[row][column]!=0 %> </td>
+			<% end %>
+		</tr>
+	<% end %>
+</table>
+<br/><br/><br/>
+<table align="center">
+	<tr>
+		<td></td>
+		<td align="center"><%= button_to "Up", "move_up"%></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td align="center"><%= button_to "Left", "move_left" %></td>
+		<td></td>
+		<td align="center"><%= button_to "Right", "move_right" %></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td align="center"><%= button_to "Down", "move_down"%></td>
+		<td></td>
+	</tr>
+</table>

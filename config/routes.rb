@@ -1,4 +1,12 @@
 Fibonacci2048::Application.routes.draw do
+  devise_for :models
+  root 'user#home'
+  resources :game
+  post 'game/move_down' => 'game#move_down', as: :move_down
+  post 'game/move_up' => 'game#move_up', as: :move_up
+  post 'game/move_left' => 'game#move_left', as: :move_left
+  post 'game/move_right' => 'game#move_right', as: :move_right
+  resources :user
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

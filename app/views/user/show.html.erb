@@ -1,0 +1,25 @@
+<h1> Hi <%= @user.name %> </h1>
+
+<%= link_to "New Game", new_game_path(username: @user.name) %> |
+<%= link_to "New User", root_path %>
+<br/>
+<br/>
+
+<table border="3">
+	<thead>
+		<th>Game ID</th>
+		<th>Grids</th>
+		<th>Score</th>
+		<th>Created At</th>
+		<th>Play</th>
+	</thead>
+	<% @games.each do |game| %>
+		<tr>
+			<td><%= game.id %></td>
+			<td><%= game.grid %></td>
+			<td><%= game.score %></td>
+			<td><%= game.created_at %></td>
+			<td><% if not game.finished %><%= link_to "Play Now", game_path(game.id) %><% end %> </td>
+		</tr>
+	<% end %>
+</table>
