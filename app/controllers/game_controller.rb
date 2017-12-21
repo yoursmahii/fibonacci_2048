@@ -1,7 +1,5 @@
 class GameController < ApplicationController
 	include GameHelper
-	before_action :authenticate_user!, only: [:show]
-
 
 	def create
 		user = User.find_or_create_by(name: params[:username])
